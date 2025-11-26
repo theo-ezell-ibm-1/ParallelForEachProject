@@ -49,7 +49,7 @@ public final class ParallelForEach
 		IDataCursor pc = pipeline.getCursor();
 		NSName svcName = NSName.create(IDataUtil.getString(pc, "svcName"));
 		IData[] items = IDataUtil.getIDataArray(pc, "items");
-		int numThreads = IDataUtil.getInt(pc, "numThreads", 10);
+		int numThreads = IDataUtil.getInt(pc, "numThreads", 5);
 		List<IData> results = new ArrayList<>(numThreads);
 		List<ServiceThread> svcThreads = new ArrayList<>(items.length);
 		
