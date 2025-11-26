@@ -50,6 +50,9 @@ public final class ParallelForEach
 		NSName svcName = NSName.create(IDataUtil.getString(pc, "svcName"));
 		IData[] items = IDataUtil.getIDataArray(pc, "items");
 		int numThreads = IDataUtil.getInt(pc, "numThreads", 10);
+		if (numThreads > 100){
+			numThreads = 100;
+		}
 		List<IData> results = new ArrayList<>(numThreads);
 		List<ServiceThread> svcThreads = new ArrayList<>(items.length);
 		
